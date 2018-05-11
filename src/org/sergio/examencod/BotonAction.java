@@ -33,6 +33,7 @@ public final class BotonAction implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
     
+        //pedimos los datos de los archivos
         String categoria=JOptionPane.showInputDialog("Bcategory: (Education)");
         String outdir=JOptionPane.showInputDialog("outdir: ");
         String outfile=JOptionPane.showInputDialog("outfile: ");
@@ -43,7 +44,7 @@ public final class BotonAction implements ActionListener {
         String Bicon=JOptionPane.showInputDialog("ruta del icono");
                 
         try {
-            
+            //ejecutamos el javapackager con las variables que pedimos antes
             String cmd="javapackager -deploy -native deb -Bcategory="+categoria+
                     " -outdir "+outdir+" -outfile "+outfile+" -srcdir "+srcdir+" -srcfiles "+srcfiles+
                     " -appclass "+appclass+" -title "+title+" -Bicon="+Bicon;
