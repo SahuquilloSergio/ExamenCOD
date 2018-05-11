@@ -22,12 +22,12 @@ import org.openide.util.NbBundle.Messages;
         id = "org.sergio.examencod.BotonAction"
 )
 @ActionRegistration(
-        iconBase = "org/sergio/examencod/google.png",
+        iconBase = "org/sergio/examencod/caja.png",
         displayName = "#CTL_BotonAction"
 )
 @ActionReference(path = "Toolbars/File",
                  position = 0)
-@Messages("CTL_BotonAction=Google")
+@Messages("CTL_BotonAction=empaquetar")
 public final class BotonAction implements ActionListener {
 
     @Override
@@ -40,12 +40,14 @@ public final class BotonAction implements ActionListener {
         String srcfiles=JOptionPane.showInputDialog("nombre del archivo.jar");
         String appclass=JOptionPane.showInputDialog("paquete+mainclass");
         String title=JOptionPane.showInputDialog("descripcion");
+        String Bicon=JOptionPane.showInputDialog("ruta del icono");
                 
         try {
             
             String cmd="javapackager -deploy -native deb -Bcategory="+categoria+
                     " -outdir "+outdir+" -outfile "+outfile+" -srcdir "+srcdir+" -srcfiles "+srcfiles+
-                    " -appclass "+appclass+" -title "+title;
+                    " -appclass "+appclass+" -title "+title+" -Bicon="+Bicon;
+
             
             Runtime rt = Runtime.getRuntime();
             //Process pr = rt.exec("cmd /c dir");
